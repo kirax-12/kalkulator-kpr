@@ -1,5 +1,7 @@
 # Kalkulator KPR
 
+**Demo live:** [kalkulator-kpr di GitHub Pages](https://kirax-12.github.io/kalkulator-kpr/)
+
 Hitung cicilan KPR per bulan sebelum ngobrol sama bank. Masukkan harga rumah, uang muka, bunga, dan tenor — cicilannya langsung keluar, lengkap dengan rincian pokok dan bunga per tahun sampai lunas.
 
 ## Fitur
