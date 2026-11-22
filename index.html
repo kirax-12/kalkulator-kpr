@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator KPR — Cicilan Rumah Berapa Per Bulan?</title>
+<meta name="description" content="Hitung cicilan KPR per bulan dari harga rumah, uang muka, bunga, dan tenor. Lengkap dengan rincian pokok dan bunga per tahun sampai lunas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="tape" aria-hidden="true">
+  <div class="tape-track">
+    <span>Kalkulator KPR · Hitung Cicilan · Jangan Asal Tanda Tangan · Cek Dulu di Sini · </span>
+    <span>Kalkulator KPR · Hitung Cicilan · Jangan Asal Tanda Tangan · Cek Dulu di Sini · </span>
+  </div>
+</div>
+
+<header class="app-header">
+  <h1>Kalkulator <span class="hl">KPR</span></h1>
+  <p class="app-sub">rumah impian cicilannya berapa sih per bulan? ↓</p>
+</header>
+
+<main>
+  <section class="panel" aria-label="Data KPR">
+    <h2>Isi datanya dulu</h2>
+
+    <div class="field">
+      <label for="input-price">Harga properti (Rp)</label>
+      <input id="input-price" type="number" min="0" step="1000000" value="500000000" inputmode="numeric">
+    </div>
+
+    <div class="field">
+      <div class="label-row">
+        <label for="input-dp">Uang muka (DP)</label>
+        <span class="readout"><strong id="dp-percent-label">20%</strong> · <span id="dp-amount-label">Rp100.000.000</span></span>
+      </div>
+      <input id="input-dp" type="range" min="0" max="50" step="1" value="20" aria-describedby="dp-amount-label">
+      <div class="slider-scale" aria-hidden="true"><span>0%</span><span>50%</span></div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="input-rate">Suku bunga per tahun (%)</label>
+        <input id="input-rate" type="number" min="0" max="30" step="0.1" value="6.5" inputmode="decimal">
+      </div>
+      <div class="field">
+        <div class="label-row">
+          <label for="input-tenor">Tenor</label>
+          <span class="readout"><strong id="tenor-label">20 tahun</strong></span>
+        </div>
+        <input id="input-tenor" type="range" min="1" max="30" step="1" value="20" aria-describedby="tenor-label">
+        <div class="slider-scale" aria-hidden="true"><span>1 thn</span><span>30 thn</span></div>
+      </div>
+    </div>
+
+    <p class="hint">Geser atau ketik aja — hasilnya langsung berubah, nggak perlu pencet tombol apa-apa.</p>
+  </section>
+
+  <section class="result" aria-live="polite">
+    <div class="result-card">
+      <p class="result-kicker">Cicilan per bulan</p>
+      <p class="result-monthly" id="out-monthly">Rp0</p>
+      <p class="result-note" id="out-note">—</p>
+      <div class="result-facts">
+        <span class="fact-chip">Pinjaman: <span id="out-loan">Rp0</span></span>
+        <span class="fact-chip">DP: <span id="out-dp">Rp0</span></span>
+        <span class="fact-chip">Total bunga: <span id="out-interest">Rp0</span></span>
+        <span class="fact-chip">Total dibayar: <span id="out-total">Rp0</span></span>
+      </div>
+      <p class="result-verdict" id="out-verdict">—</p>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="Rincian per tahun">
+    <h2>Rincian per tahun</h2>
+    <p class="panel-sub">tahun-tahun awal, cicilanmu kebanyakan buat bayar bunga. sabar ya. ↓</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Tahun</th>
+            <th scope="col" class="num">Pokok terbayar</th>
+            <th scope="col" class="num">Bunga terbayar</th>
+            <th scope="col" class="num">Sisa pinjaman</th>
+          </tr>
+        </thead>
+        <tbody id="breakdown-body"></tbody>
+      </table>
+    </div>
+    <p class="fineprint">Ini estimasi kasar dengan bunga dianggap tetap (fixed) selama tenor. Di bank beneran, bunga KPR biasanya cuma fixed 1–5 tahun pertama, habis itu floating mengikuti pasar — jadi cicilan aslimu bisa naik. Biaya lain kayak provisi, administrasi, notaris, dan asuransi juga belum termasuk di sini.</p>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <p>Dibuat oleh <a href="https://github.com/kirax-12" target="_blank" rel="noopener">Remike Dev</a> · Kalkulator ini buat gambaran awal, bukan janji dari bank</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
